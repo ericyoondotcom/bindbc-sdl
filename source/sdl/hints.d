@@ -233,7 +233,7 @@ mixin(makeEnumBind(q{SDL_Hint}, q{SDL_Hint_}, members: (){
 		{{q{windowsCloseOnAltF4},                   q{SDL_HINT_WINDOWS_CLOSE_ON_ALT_F4}},                    q{"SDL_WINDOWS_CLOSE_ON_ALT_F4"}},
 		{{q{windowsEnableMenuMnemonics},            q{SDL_HINT_WINDOWS_ENABLE_MENU_MNEMONICS}},              q{"SDL_WINDOWS_ENABLE_MENU_MNEMONICS"}},
 		{{q{windowsEnableMessageloop},              q{SDL_HINT_WINDOWS_ENABLE_MESSAGELOOP}},                 q{"SDL_WINDOWS_ENABLE_MESSAGELOOP"}},
-		{{q{windowsGameinput},                      q{SDL_HINT_WINDOWS_GAMEINPUT}},                          q{"SDL_WINDOWS_GAMEINPUT"}},
+		{{q{windowsGameInput},                      q{SDL_HINT_WINDOWS_GAMEINPUT}},                          q{"SDL_WINDOWS_GAMEINPUT"}, aliases: [{q{windowsGameinput}}]},
 		{{q{windowsRawKeyboard},                    q{SDL_HINT_WINDOWS_RAW_KEYBOARD}},                       q{"SDL_WINDOWS_RAW_KEYBOARD"}},
 		{{q{windowsForceSemaphoreKernel},           q{SDL_HINT_WINDOWS_FORCE_SEMAPHORE_KERNEL}},             q{"SDL_WINDOWS_FORCE_SEMAPHORE_KERNEL"}},
 		{{q{windowsIntresourceIcon},                q{SDL_HINT_WINDOWS_INTRESOURCE_ICON}},                   q{"SDL_WINDOWS_INTRESOURCE_ICON"}},
@@ -287,6 +287,13 @@ mixin(makeEnumBind(q{SDL_Hint}, q{SDL_Hint_}, members: (){
 	if(sdlVersion >= Version(3,4,2)){
 		EnumMember add =
 			{{q{openGLForceSRGBFramebuffer},        q{SDL_HINT_OPENGL_FORCE_SRGB_FRAMEBUFFER}},              q{"SDL_OPENGL_FORCE_SRGB_FRAMEBUFFER"}};
+		ret ~= add;
+	}
+	if(sdlVersion >= Version(3,4,4)){
+		EnumMember[] add = [
+			{{q{joystickGameInputRaw},              q{SDL_HINT_JOYSTICK_GAMEINPUT_RAW}},                     q{"SDL_JOYSTICK_GAMEINPUT_RAW"}},
+			{{q{windowsRawKeyboardInputSink},       q{SDL_HINT_WINDOWS_RAW_KEYBOARD_INPUTSINK}},             q{"SDL_WINDOWS_RAW_KEYBOARD_INPUTSINK"}},
+		];
 		ret ~= add;
 	}
 	return ret;
