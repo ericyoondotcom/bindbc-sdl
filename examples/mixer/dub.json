@@ -11,7 +11,7 @@
 	"targetPath": "bin",
 	
 	"libs": ["SDL3", "SDL3_mixer"],
-	"versions": ["SDL_MainUseCallbacks", "SDL_Mixer_3_0"],
+	"versions": ["SDL_MainUseCallbacks", "SDL_Mixer_3_2_2"],
 	
 	"buildTypes": {
 		"betterC": {
